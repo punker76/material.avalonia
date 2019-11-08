@@ -12,30 +12,18 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
-            <ControlTemplate>
-                <ripple:RippleEffect
-                    RippleFill="{DynamicResource RippleEffectBrush}"
-                    RippleOpacity="0.2">
-                    <Grid>
-                        <Border Name="buttonBorder"
-                                Background="{Binding $parent[Button].Background}"
-                                CornerRadius="3">
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              Background="{TemplateBinding Background}"
-                                              BorderBrush="{TemplateBinding BorderBrush}"
-                                              BorderThickness="{TemplateBinding BorderThickness}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              Content="{TemplateBinding Content}"
-                                              Padding="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        </Border>
-                        <Border Name="pointerover"
-                                CornerRadius="3"
-                                Background="White" />
-                    </Grid>
-                </ripple:RippleEffect>
-            </ControlTemplate>
+          <ControlTemplate>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              Padding="{TemplateBinding Padding}"
+                              TextBlock.Foreground="{TemplateBinding Foreground}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </ControlTemplate>
         </Setter>
     </Style>
 
