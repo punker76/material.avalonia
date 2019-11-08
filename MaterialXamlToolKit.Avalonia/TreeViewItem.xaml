@@ -8,16 +8,12 @@
             <converters:MarginMultiplierConverter Indent="16" Left="True" x:Key="LeftMarginConverter" />
         </Style.Resources>
         <Setter Property="Padding" Value="2" />
-        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel>
                     <ripple:RippleEffect
                         RippleFill="{DynamicResource RippleEffectBrush}"
                         RippleOpacity="0.2">
-                        <Border Name="buttonBorder"
-                                Background="{Binding $parent[Button].Background}"
-                                CornerRadius="3">
                             <Border Name="SelectionBorder"
                                     Focusable="True"
                                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -37,7 +33,6 @@
                                                       Grid.Column="1" />
                                 </Grid>
                             </Border>
-                        </Border>
                     </ripple:RippleEffect>
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     IsVisible="{TemplateBinding IsExpanded}"
@@ -56,7 +51,7 @@
                         Height="12"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                    <Path Fill="{DynamicResource ThemeForegroundBrush}"
+                    <Path Fill="{TemplateBinding Foreground}"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           Data="M 0 2 L 4 6 L 0 10 Z" />
