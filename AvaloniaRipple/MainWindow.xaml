@@ -109,7 +109,7 @@
                     </Grid>
                 </StackPanel>
                 <Calendar Name="calendar1" FirstDayOfWeek="Monday">
-                   
+
                 </Calendar>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Vertical">

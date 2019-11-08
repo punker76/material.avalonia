@@ -5,17 +5,17 @@
         <Setter Property="TextBlock.Foreground" Value="Black" />
     </Style>
 
-  
+
     <Style Selector="MenuItem:pointerover /template/ Border#root">
         <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten3Brush}" />
         <Setter Property="TextBlock.Foreground" Value="Black" />
     </Style>
-    
+
     <Style Selector="MenuItem:selected /template/ Border#root">
         <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleBrush}" />
         <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten3Brush}" />
     </Style>
-    
+
     <Style Selector="MenuItem /template/ Path#rightArrow">
         <Setter Property="Fill" Value="{DynamicResource DeepPurpleBrush}" />
     </Style>
@@ -27,5 +27,5 @@
     <Style Selector="MenuItem:disabled">
         <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
     </Style>
-   
+
 </Styles>

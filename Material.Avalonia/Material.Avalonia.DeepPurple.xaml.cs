@@ -2,8 +2,7 @@ using Avalonia.Styling;
 
 namespace Material.Avalonia
 {
-    public class MaterialAvaloniaDeepPurple:Styles
+    public class MaterialAvaloniaDeepPurple : Styles
     {
-        
     }
 }
