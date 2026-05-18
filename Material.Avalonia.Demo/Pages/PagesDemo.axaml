@@ -1,0 +1,216 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:ext="using:Material.Avalonia.Demo.Extensions"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+
+             x:Class="Material.Avalonia.Demo.Pages.PagesDemo">
+  <ScrollViewer>
+    <StackPanel Margin="16" Spacing="24">
+      <TextBlock Classes="Headline5" Text="Page Controls" />
+
+
+      <!-- DrawerPage -->
+      <TextBlock Classes="Headline6" Text="DrawerPage" />
+      <StackPanel Orientation="Horizontal" Spacing="12" Margin="0,0,0,8">
+        <TextBlock Classes="Body2" Text="Mode:" VerticalAlignment="Center" />
+        <RadioButton Content="Overlay" GroupName="DrawerMode"
+                     IsCheckedChanged="DrawerOverlay_Checked" />
+        <RadioButton IsChecked="True" Content="Split" GroupName="DrawerMode"
+                     IsCheckedChanged="DrawerSplit_Checked" />
+        <RadioButton Content="Persistent Split" GroupName="DrawerMode"
+                     IsCheckedChanged="DrawerSplit_Checked" />
+        <CheckBox Name="DemoDrawerRtlCheckBox" Content="RightToLeft" IsCheckedChanged="DrawerRtl_Checked" />
+      </StackPanel>
+      <Border Height="350" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+        <DrawerPage Name="DemoDrawer"
+                    Header="DrawerPage (Overlay)"
+                    DrawerLength="200"
+                    IsOpen="True"
+                    DrawerLayoutBehavior="Split">
+
+          <!--Header-->
+          <DrawerPage.DrawerHeader >
+            <controls:ColorZone Mode="Accent"   Height="180" >
+              <StackPanel>
+                <Image Width="96" Height="120"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Source="avares://Material.Avalonia.Demo/Assets/FavIcon_128x.png" Margin="0,0,0,-8"  />
+                <TextBlock Classes="Headline6" Text="Material Design" HorizontalAlignment="Center" />
+                <TextBlock Classes="Subtitle1" Text="with AvaloniaUI" HorizontalAlignment="Center" />
+              </StackPanel>
+            </controls:ColorZone>
+          </DrawerPage.DrawerHeader>
+
+          <!--Drawer-->
+          <DrawerPage.Drawer>
+            <StackPanel Margin="0,8">
+              <ListBox>
+                <ListBoxItem>Item 1</ListBoxItem>
+                <ListBoxItem>Item 2</ListBoxItem>
+                <ListBoxItem>Item 3</ListBoxItem>
+              </ListBox>
+            </StackPanel>
+          </DrawerPage.Drawer>
+
+          <!--Footer-->
+          <DrawerPage.DrawerFooter>
+            <TextBlock Classes="Subtitle1" Text="The Footer" HorizontalAlignment="Center" />
+          </DrawerPage.DrawerFooter>
+
+          <!--Content-->
+          <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+            <TextBlock Classes="Headline6" Text="Main Content" HorizontalAlignment="Center" />
+          </StackPanel>
+
+        </DrawerPage>
+      </Border>
+
+      <!-- DrawerPage: Compact Navigation Rail -->
+      <TextBlock Classes="Headline6" Text="DrawerPage (Compact)" />
+      <Border Height="300" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+        <DrawerPage Header="DrawerPage - Compact Navigation Rail"
+                    DrawerLayoutBehavior="CompactInline"
+                    CompactDrawerLength="56"
+                    DrawerLength="200">
+
+          <!--Drawer-->
+          <DrawerPage.Drawer>
+            <StackPanel Spacing="2" Margin="0,8">
+              <Button HorizontalAlignment="Stretch" CornerRadius="0" Theme="{StaticResource MaterialFlatButton}" Classes="primary"
+                      ToolTip.Tip="Home">
+                <StackPanel HorizontalAlignment="Center" Spacing="3">
+                  <avalonia:MaterialIcon Kind="Home"></avalonia:MaterialIcon>
+                  <TextBlock Text="Home" FontSize="9" HorizontalAlignment="Center" />
+                </StackPanel>
+              </Button>
+              <Button HorizontalAlignment="Stretch" CornerRadius="0" Theme="{StaticResource MaterialFlatButton}" Classes="primary"
+                      ToolTip.Tip="Profile">
+                <StackPanel HorizontalAlignment="Center" Spacing="3">
+                  <avalonia:MaterialIcon Kind="Account"></avalonia:MaterialIcon>
+                  <TextBlock Text="Profile" FontSize="9" HorizontalAlignment="Center" />
+                </StackPanel>
+              </Button>
+            </StackPanel>
+          </DrawerPage.Drawer>
+
+          <!--Content-->
+          <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+            <TextBlock Classes="Headline6" Text="Main Content" HorizontalAlignment="Center" />
+          </StackPanel>
+        </DrawerPage>
+      </Border>
+
+
+
+
+
+
+
+      <!-- TabbedPage -->
+      <TextBlock Classes="Headline6" Text="TabbedPage" />
+      <StackPanel Orientation="Horizontal" Spacing="12" Margin="0,0,0,8">
+        <TextBlock Classes="Body2" Text="Tab Placement:" VerticalAlignment="Center" />
+        <RadioButton Content="Top" GroupName="TabPlacement" IsChecked="True"
+                     IsCheckedChanged="TabPlacementTop_Checked" />
+        <RadioButton Content="Bottom" GroupName="TabPlacement"
+                     IsCheckedChanged="TabPlacementBottom_Checked" />
+        <RadioButton Content="Left" GroupName="TabPlacement"
+                     IsCheckedChanged="TabPlacementLeft_Checked" />
+        <RadioButton Content="Right" GroupName="TabPlacement"
+                     IsCheckedChanged="TabPlacementRight_Checked" />
+      </StackPanel>
+      <Border Height="300" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+        <TabbedPage Name="DemoTabbedPage" TabPlacement="Top">
+
+          <ContentPage Header="Home" Icon="{ext:MaterialIconGeometryExt Home}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+              <TextBlock Classes="Headline6" Text="Home Tab" HorizontalAlignment="Center" />
+              <TextBlock Classes="Body2" Text="Welcome to the home tab." HorizontalAlignment="Center" />
+            </StackPanel>
+          </ContentPage>
+
+          <ContentPage Header="Favorites" Icon="{ext:MaterialIconGeometryExt Star}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+              <TextBlock Classes="Headline6" Text="Favorites Tab" HorizontalAlignment="Center" />
+              <TextBlock Classes="Body2" Text="Your favorite items appear here." HorizontalAlignment="Center" />
+            </StackPanel>
+          </ContentPage>
+
+          <ContentPage Header="Settings" Icon="{ext:MaterialIconGeometryExt Cog}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+              <TextBlock Classes="Headline6" Text="Settings Tab" HorizontalAlignment="Center" />
+              <TextBlock Classes="Body2" Text="Adjust your preferences." HorizontalAlignment="Center" />
+            </StackPanel>
+          </ContentPage>
+
+        </TabbedPage>
+      </Border>
+
+      <!-- CarouselPage -->
+      <TextBlock Classes="Headline6" Text="CarouselPage with PipsPager" />
+      <Border Height="250" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+        <Grid RowDefinitions="*,Auto">
+          <CarouselPage Name="DemoCarouselPage"
+                        SelectedIndex="{Binding #CarouselPips.SelectedPageIndex, Mode=TwoWay}">
+            <ContentPage Header="Page 1">
+              <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Classes="Headline5" Text="1" HorizontalAlignment="Center" />
+                <TextBlock Classes="Body1" Text="Use the pips or swipe to navigate" HorizontalAlignment="Center" />
+              </StackPanel>
+            </ContentPage>
+            <ContentPage Header="Page 2">
+              <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Classes="Headline5" Text="2" HorizontalAlignment="Center" />
+                <TextBlock Classes="Body1" Text="Second carousel page" HorizontalAlignment="Center" />
+              </StackPanel>
+            </ContentPage>
+            <ContentPage Header="Page 3">
+              <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Classes="Headline5" Text="3" HorizontalAlignment="Center" />
+                <TextBlock Classes="Body1" Text="Third carousel page" HorizontalAlignment="Center" />
+              </StackPanel>
+            </ContentPage>
+          </CarouselPage>
+          <PipsPager Name="CarouselPips"
+                     Grid.Row="1"
+                     NumberOfPages="3"
+                     HorizontalAlignment="Center"
+                     Margin="0,8" />
+        </Grid>
+      </Border>
+
+      <!-- NavigationPage -->
+      <TextBlock Classes="Headline6" Text="NavigationPage" />
+      <TextBlock Classes="Body2" TextWrapping="Wrap"
+                 Text="NavigationPage provides a stack-based navigation with a top app bar. Push and pop pages with back button support." />
+      <Border Height="350" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+        <NavigationPage Name="DemoNavigationPage">
+          <ContentPage Header="Root Page">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+              <TextBlock Classes="Headline6" Text="Root Page" HorizontalAlignment="Center" />
+              <Button Name="NavPushButton" Content="Push Detail Page" Classes="Flat" HorizontalAlignment="Center" />
+            </StackPanel>
+          </ContentPage>
+        </NavigationPage>
+      </Border>
+
+
+
+
+      <!-- ContentPage -->
+      <TextBlock Classes="Headline6" Text="ContentPage" />
+      <Border Height="200" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4">
+        <ContentPage Header="My Content Page">
+          <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+            <TextBlock Classes="Headline6" Text="Hello from ContentPage!" HorizontalAlignment="Center" />
+            <TextBlock Classes="Body2" Text="This is the simplest page control." HorizontalAlignment="Center" />
+          </StackPanel>
+        </ContentPage>
+      </Border>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>
