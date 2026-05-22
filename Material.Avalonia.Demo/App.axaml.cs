@@ -20,7 +20,8 @@ public class App : Application {
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform) {
             singleViewPlatform.MainView = new MainView();
         }
-
+        
+        this.AttachDeveloperTools();
         base.OnFrameworkInitializationCompleted();
     }
 }
